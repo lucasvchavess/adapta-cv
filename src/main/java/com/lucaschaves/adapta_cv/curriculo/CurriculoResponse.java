@@ -7,6 +7,7 @@ public record CurriculoResponse(
     Long id,
     String nome,
     String resumo,
+    String textoOriginal,
     List<String> experiencias,
     LocalDateTime criadoEm) {
 
@@ -16,6 +17,7 @@ public record CurriculoResponse(
             curriculo.getId(),
             curriculo.getNome(),
             curriculo.getResumo(),
+            curriculo.getTextoOriginal(),
             curriculo.getExperiencias(),
             curriculo.getCriadoEm());
         }

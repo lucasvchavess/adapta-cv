@@ -23,8 +23,11 @@ public class Curriculo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String resumo;
+
+    @Column(columnDefinition = "TEXT")
+    private String textoOriginal;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "curriculo_experiencias", joinColumns = @JoinColumn(name = "curriculo_id"))
@@ -49,6 +52,14 @@ public class Curriculo {
 
     }
 
+    public Curriculo(String nome, String textoOriginal) {
+        this.nome = nome;
+        this.textoOriginal = textoOriginal;
+        this.criadoEm = LocalDateTime.now();
+    }
+
+    
+
     public Long getId() {
         return id;
     }
@@ -67,6 +78,10 @@ public class Curriculo {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getTextoOriginal() {
+        return textoOriginal;
     }
 
     
